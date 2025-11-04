@@ -3,6 +3,7 @@
 !*/
 plugged
 autoload
+lazy-lock.json
 !config
 *.kate-swp
 *.swp

@@ -90,11 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-<<<<<<< HEAD
-# export LANG=fi_FI.UTF-8
-=======
 export LANG=fi_FI.UTF-8
->>>>>>> main
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -131,9 +127,6 @@ zstyle :compinstall filename '/home/aapeli/.zshrc'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-<<<<<<< HEAD
-eval "$(zoxide init zsh)"
-=======
 eval "$(zoxide init --cmd cd zsh)"
 
 bindkey '^[[P' delete-char
@@ -147,4 +140,3 @@ bindkey -M visual '^[[P' vi-delete
 
 # Load syntax highlighting; should be last.
 source /home/aapeli/.oh-my-zsh/custom/plugins/F-Sy-H/F-Sy-H.plugin.zsh 2>/dev/null
->>>>>>> main

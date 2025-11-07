@@ -1,15 +1,11 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/aapeli/.oh-my-zsh"
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE="$HOME/.zsh_history"
+setopt inc_append_history
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -85,9 +81,6 @@ plugins=(
     doas
 )
 
-
-
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -129,11 +122,29 @@ dlvd () {
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle :compinstall filename '/home/aapeli/.zshrc'
 
-autoload -Uz compinit
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
 compinit
-# End of lines added by compinstall
+_comp_options+=(globdots)		# Include hidden files.
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(zoxide init zsh)"
+
+
+
+
+bindkey '^[[P' delete-char
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
+
+# Load syntax highlighting; should be last.
+source /home/aapeli/.oh-my-zsh/custom/plugins/F-Sy-H/F-Sy-H.plugin.zsh 2>/dev/null

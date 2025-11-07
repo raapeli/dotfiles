@@ -57,10 +57,10 @@ bindsym $mod+space exec rofi -show drun -hide-scrollbar -lines 5 -eh 1 -width 40
 
 bindsym $mod+Shift+e exec ~/.config/rofi/rofi-close.sh
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -190,6 +190,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+x exec i3lock 
 bindsym $mod+Shift+f exec firefox 
+bindsym $mod+Shift+s exec speedcrunch
 bindsym $mod+w       exec st zsh -c ranger
 
 #exec feh --bg-scale ~/Pictures/fill.png 

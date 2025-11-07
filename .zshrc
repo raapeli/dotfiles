@@ -4,7 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
@@ -82,11 +81,7 @@ plugins=(
     colored-man-pages
     F-Sy-H
     zsh-autosuggestions
-    doas
 )
-
-
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,7 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
+<<<<<<< HEAD
 # export LANG=fi_FI.UTF-8
+=======
+export LANG=fi_FI.UTF-8
+>>>>>>> main
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -129,11 +128,23 @@ dlvd () {
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle :compinstall filename '/home/aapeli/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+<<<<<<< HEAD
 eval "$(zoxide init zsh)"
+=======
+eval "$(zoxide init --cmd cd zsh)"
+
+bindkey '^[[P' delete-char
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
+
+# Load syntax highlighting; should be last.
+source /home/aapeli/.oh-my-zsh/custom/plugins/F-Sy-H/F-Sy-H.plugin.zsh 2>/dev/null
+>>>>>>> main

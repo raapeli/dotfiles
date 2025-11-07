@@ -70,9 +70,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
+    ensure_installed = {
+        'matlab_ls'
+    },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
+        end,
+        matlab_ls = function ()
+            require('lspconfig').matlab_ls.setup({
+                filetypes = {"matlab"},
+                settings = {
+                    matlab = {
+                        installPath = "/usr/local/MATLAB/R2024b/"
+                    },
+                },
+                single_file_support = true
+            })
         end,
     },
 })

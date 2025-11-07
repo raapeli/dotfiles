@@ -4,3 +4,5 @@ blur=true
 [font]
 normal = { family = 'IosevkaTerm NFP', style='Regular' }
 size=15
+[cursor]
+style = { shape="Beam", blinking="On" }

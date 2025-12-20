@@ -1,4 +1,2 @@
-require("aapeli.lazy")
-require("aapeli.packer")
-require("aapeli.remap")
-require("aapeli.set")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

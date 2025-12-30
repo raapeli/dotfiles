@@ -203,11 +203,11 @@ bindsym $mod+r mode "resize"
  #       status_command i3status
 #}
 
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec waterfox
 bindsym $mod+w       exec st ranger
 bindsym $mod+Shift+x exec swaylock
 
 # Startup daemons for compositor and status bar
 exec_always --no-startup-id pkill dunst; dunst
 exec_always --no-startup-id waybar
-exec --no-startup-id firefox
+exec --no-startup-id waterfox

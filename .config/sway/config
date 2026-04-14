@@ -1,3 +1,5 @@
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 #Set mod to super
 set $mod Mod4
 
@@ -6,7 +8,6 @@ set $rofi ~/.config/rofi/launch.sh
 # Turn borders off
 for_window [class="^.*"] border pixel 0
 
-exec_always pkill waybar
 # Change gap size
 gaps outer 1
 gaps inner 20
@@ -18,11 +19,11 @@ gaps top 0
 #font pango:System San Francisco Displa
 
 
-exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 305 'swaymsg "output * power off"' \
-            resume 'swaymsg "output * power on"' \
-    before-sleep 'playerctl pause; swaylock -f'
+ exec swayidle -w \
+     timeout 300 'swaylock -f' \
+     timeout 305 'swaymsg "output * power on"' \
+             resume 'swaymsg "output * power on"' \
+     before-sleep 'playerctl pause; swaylock -f'
 
 bindswitch --locked lid:toggle exec 'swaylock --daemonize' 
 
@@ -51,7 +52,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 #bindsym Print exec spectactle -rbc
-bindsym Print exec spectacle -rbc
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Print exec spectacle -g
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -210,5 +211,5 @@ bindsym $mod+Shift+w exec ~/.config/scripts/wallpapersetter.sh
 
 # Startup daemons for compositor and status bar
 exec_always --no-startup-id pkill dunst; dunst
-exec_always --no-startup-id waybar
+exec_always --no-startup-id pkill waybar; waybar
 exec --no-startup-id firefox

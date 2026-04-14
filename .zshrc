@@ -81,7 +81,6 @@ plugins=(
     colored-man-pages
     F-Sy-H
     zsh-autosuggestions
-    doas
 )
 
 source $ZSH/oh-my-zsh.sh

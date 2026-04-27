@@ -204,7 +204,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+w       exec st ranger
-bindsym $mod+Shift+x exec swaylock
+bindsym $mod+Shift+x exec swaylock -i ~/Pictures/walls/minimal/a_pool_and_a_house.jpg
 
 exec ~/.config/scripts/wallpapersetter.sh
 bindsym $mod+Shift+w exec ~/.config/scripts/wallpapersetter.sh
